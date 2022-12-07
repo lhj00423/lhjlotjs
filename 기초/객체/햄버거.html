@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       
+       
+        function Burgers(name, price, size,){
+            this.name = name;
+            this.price = price;
+            this.size = size;
+        }
+        let burgers = [
+            new Burgers (`새우버거`, 5000, `big`),
+            new Burgers (`불고기버거`, 4500, `regular`),
+            new Burgers (`쥬니어불고기버거`, 3500, `small`),
+            new Burgers (`치즈버거`, 5500, `regular`),
+            new Burgers (`스테이크버거`, 7000, `big`),
+            new Burgers (`치킨버거`, 5500, `regular`),
+            new Burgers (`야채버거`, 4500, `regular`),
+            new Burgers (`쥬니어새우버거`, 3000, `small`),
+            
+        ];
+        console.log(burgers);
+
+        //01 문제 regular 햄버거만 새로운 배열로 만드세요
+        let result = burgers. filter(burgers=>burgers.size === `regular`);
+        console.log(result);
+
+        //02 문제 햄버거의 이름만 배열로 만드세요
+        let result2 = burgers. map(burgers=>burgers.name);
+        console.log(result2)
+
+        //03 문제 가격이 5000원 이상인 햄버거만 새로운 배열로 만드세요
+        let result3 = burgers. filter(burgers=>burgers.price <=5000);
+        console.log(result3);
+
+        //04 문제 이름이 스테이크버거인 햄버거 찾기
+        let result4 = burgers. find(burgers=>burgers.name === `스테이크`);
+        console.log(result4);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas{
+            background-color: #eee;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="1500px" height="1500px"></canvas>
+    <button onclick = ></button>
+    <script>
+        const canvas = document.querySelector("#canvas");
+        const ctx = canvas.getContext("2d");
+        let drawingMode; //true일때만 그리기 
+        ctx.lineWidth = 30;
+        ctx.lineCap = "round";
+        //선색변경
+        ctx.strokeStyle = "pink";
+        function downHandler(){
+            drawingMode = true;
+        }
+        function upHandler(){
+            drawingMode = false;
+        }
+        function moveHandler(e){
+            if(!drawingMode) retrun;
+            let x =e.pageX;
+            let y =e.pageY;
+            ctx.beginPath();
+            ctx.moveTo(x,y);
+            ctx.lineTo(x,y);
+            ctx.stroke();
+        }
+        canvas.addEventListener("mousedown",downHandler);
+        canvas.addEventListener("mouseup",upHandler);
+        canvas.addEventListener("mousemove",moveHandler);
+    </script>
+</body>
+</html>

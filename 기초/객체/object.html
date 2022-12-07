@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let obj1 = {};
+        let obj2 = new Object();
+        obj1. name = "green";
+        obj1. age = 30;
+        obj2. name = "blue";
+        obj2. age = "27"
+        console.log(obj1) ;
+        console.log(obj2) ;
+        let arr = [1,2,3];
+        console.log(arr);
+
+        let obj3 = {
+            name: "pink",
+            age: 30,
+        }
+        console.log(obj3.name);
+        console.log(obj3.age);
+        console.log(obj3["age"]);
+        function print(name,age){
+            console.log(name);
+            console.log(age);
+        }
+        print("aaa",20);
+        function printobj(obj1){
+            console.log(obj1.name);
+            console.log(obj1.age);
+        }
+        printobj(obj3);
+        obj3.hasJob = true;
+        console.log(obj3);
+        //property 삭제
+        //delete obj.key 삭제
+        delete obj3.hasJob;
+        console.log(obj3);
+        /*
+        let student1 = {
+            name : "솔이",
+            age : 28,
+            tel:010-1234-5678,
+        }
+        let student2 = {
+            name : "효정",
+            age : 27,
+            tel: 010-9876-5678, 
+        }*/
+        //생성자 함수
+        function Person(name,age,tel){
+            //this= {}; 빈객체가 생략됨
+            this.name = name;
+            this.age = age;
+            this.tel = tel;
+           // return this; 생략됨
+        }
+        //new 가 생성자 함수 부르는 입력값
+        let student1 = new Person("솔이",28,"010-1234-5678");
+        let student2 = new Person("효정",27,"010-1234-5678");
+        console.log(student1);
+        console.log(student2);
+
+        function makePerson(name,age){
+            return{
+                //a라는 문자열임, 변수가 아님
+                //문자열이랑 입력값이 같으면 생락가능함
+                name,
+                age,
+                a:name,
+                b:age,
+            }
+        }
+        let student3 = makePerson("재원",27);
+        console.log(student3);
+
+        //in 연산자 해당하는 object(객체)에 키가 있는지
+        //키이름이 오고 뒤에 객체
+        console.log(`name` in student1);
+        console.log(`hasJob` in student1);
+        
+        //for in문
+        let arr2 = ["a","b","c","d","e"];
+        for (let i of arr2 ){
+            console.log(i);
+        }
+        for (let key in student1){
+            console.log(student1[key]);
+        }
+
+        
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // request header / body
+        // open("http메소드", "경로") GET, POST, PUT, FETCH, DELETE
+        // setRequestHeader("contend-type", "application / json") json데이터 전송
+        // send(data)
+        // xhr.onload = () => {}
+
+        const xhr = new XMLHttpRequest(); // XMLHttpRequest객체 생성
+        // HTTP메소드, url정의
+        xhr.open("GET", "https://jsonplaceholder.typicode.com/posts/1");
+        // header에 있는 값 중 content-type 정의
+        xhr.setRequestHeader("content-type","application / json");
+        // 요청 전송
+        xhr.send();
+        xhr.onload = () => {
+            if (xhr.status === 200) {
+                // 정상적으로 응답이 되면 200번
+                // xhr.response => 응답 데이터
+                // JSON.parse(json) => json형태를 자바스크립트에서 사용 가능한 객체 형태로 변경해서 반환
+                const res = JSON.parse(xhr.response);
+                console.log(res);
+            } else {
+                // 응답 상태변화와 응답 메세지 출력
+                console.error(xhr.status, xhr.statusText);
+            }
+        }
+
+        // 이거 왜 안될까요 ㅜㅜㅡㅜㅡㅜ 나중에 한 번 확인해보세요 ..!!!! 꼭이요 !!!!!!!!!!
+    </script>
+</body>
+</html>

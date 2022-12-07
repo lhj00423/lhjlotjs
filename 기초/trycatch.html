@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        try{
+            console.log('try블럭 시작');
+            // 없는 변수 호출하면 에러발생해서 콘솔에 뜸
+            //say;
+            //내가 에러를 만든거임 189p(에러유형들)
+            throw new SyntaxError("구문이 틀렸어요: 다시작성");
+            console.log('try블럭 끝')
+         }
+         catch(err){
+             console.log(err.name)
+             console.log(err.message)
+         }
+        console.log("계속동작");
+    </script>
+</body>
+</html>

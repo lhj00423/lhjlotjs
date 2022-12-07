@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul{
+            display: flex;
+
+        }
+        li{
+            margin-left:50px ;
+        }
+        div{
+            width: 1000px;
+            height: 0px;
+            transition: 0.5s;
+            background: blue;
+        }
+        .on{
+            height: 500px;
+        }
+        
+    </style>
+</head>
+<body> 
+        <ul>
+            <li id = "a">list2</li>
+            <li id = "b">list2</li>
+            <li id = "c">list3</li>
+            <li id = "d">list4</li>
+        </ul>
+    <div></div>
+    <script>
+        //list1 마우스 올렸을때 div 클래스면
+        let li = document.querySelector("li:nth-child(1)");
+        let div = document.querySelector("div");
+        li.addEventListener("mouseenter",function(){
+            div.classList.add("on");
+        })
+         li.addEventListener("mouseleave",function(){
+            div.classList.remove("on");
+         })  
+
+  
+        
+      
+    </script>
+</body>
+</html>

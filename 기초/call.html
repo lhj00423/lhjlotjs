@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //기본 this는 = > window 바인딩
+        //객체.메소드() => this는 객체를 바인딩
+        //dom 이벤트 발생시 => this는 이벤트를 발생시킨 dom을 바인딩
+        let stu = {
+            name:"gg",
+            age:30
+        }
+        function printName(){
+            console.log(this.name)
+        }
+        //윈도우가 아니고 stu가 this가 됨
+        function updataObj(name,age){
+            this.name = name;
+            this.age = age;
+        }
+        printName.call(stu);
+        updataObj.call(stu,"aaa",27);
+        console.log(stu);
+        updataObj.apply(stu,["baba",27]);
+        console.log(stu);
+
+        const numArr = [1,2,3,4,5];
+        //apply는 배열을 펼쳐서 들어감, 굳이 안펼쳐도 됨
+        //Math.max.apply(null, [1,2,3,4,5])
+        let maxNum = Math.max.apply(null,numArr);
+
+        //call은 스프레드로 펼쳐서 들어가야함
+        //Math.max.call(null, [1,2,3,4,5,])
+        let maxNum2 = Math.max.call(null, ...numArr);
+
+        //let maxNum = Math.max(...numArr); 스프레드로 해야함
+        //let maxNum = Math.max(numArr); 이렇게는 배열안됨
+        console.log(maxNum);
+        console.log(maxNum2);
+
+        const aa= {
+            x:50,
+            getX:function(){
+                return this.x;
+            }
+        }
+
+        //담겨있는 값을 옮겨서 (함수만)
+        const newFun = aa.getX;
+        const nnewFun = newFun.bind(aa);
+        //newFun = function(){return this.x};
+
+        //따로 있는 함수를 실행키(값은 그대로있음, 함수만 그대로 ㅇ), (새로운 함수호출 => this => window => undefined)
+        console.log(newFun());
+        console.log(nnewFun())
+    </script>
+</body>
+</html>

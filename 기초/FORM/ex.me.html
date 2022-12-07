@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<form name = "fruitsForm">
+    <p>솔은 무슨 과일 좋아할까?</p>
+    <p>전체 선택<input type="checkbox" name = "allcheck"></p>
+    <p>사과<input type="checkbox" name = "fruit" value="🍎"></p>
+    <p>오렌지<input type="checkbox" name = "fruit" value="🍊"></p>
+    <p>바나나<input type="checkbox" name = "fruit" value="🍌"></p>
+    <p><button id = "btn">결과보기</button></p>
+    <p>
+        <button id = "allCheck">전체선택</button>
+    </p>
+    <p id="result"></p>
+</form>
+    <script>
+        
+        const btn = document.querySelector("#btn");
+        const allbtn = document.querySelector("#allCheck");
+        let inputs = document.forms.fruitsForm.fruit;
+                console.log(inputs);
+        btn.addEventListener("click", function(){
+            let fruitsInputs = document.querySelectorAll("input");
+            let str = "";
+            fruitsInputs.forEach(input=>{
+                str = input.checked ? str + input.value : str;
+            })
+            document.querySelector("#result").innerHTML = str;
+        })
+        allbtn.addEventListener("click",function(){
+            
+            inputs.forEach(input=>{
+                input.checked = true;
+            })
+        })
+        //담겨있는 인풋 (원래있던 값에 할당 = str + input.value )
+        //폼요소 접근 방법 - document.forms.폼네임.요소네임
+        //폼관련이벤트
+        //input이벤트
+        //change이벤트
+        //폼관련속성
+        //checked true값이면 체크 false 체크해지
+        
+    </script>
+</body>
+</html>

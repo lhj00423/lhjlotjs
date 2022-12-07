@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let fruits = ["🍋","🍌","🍉","🍇","🍏","🍓","🍊"];
+        console.log(fruits);
+        console.log(fruits[0]);
+        console.log(fruits[fruits.length-1]);
+        fruits[fruits.length] = "🥨";
+        console.log(fruits);
+        fruits[0] = "🍦";
+        console.log(fruits);
+        
+        //배열 메소드
+        //push() 맨끝요소를 추가
+        //pop() 맨끝요소를 제거
+        //unshift() 맨앞에 요소를 추가
+        //shift() 맨끝 요소를 제거
+        fruits.push("🎂");
+        console.log(fruits);
+
+        fruits.pop();
+        console.log(fruits);
+
+        fruits.unshift("❤");
+        console.log(fruits);
+
+        fruits.shift();
+        console.log(fruits);
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>변수와 상수</h1>
+    <p id="date">자바스크립트</p>
+    <img src="img/pic_bulboff.gif" alt="">
+    <div>
+    <button onclick="on()">솔이는귀요미</button>
+    <button onclick="off()">솔이는예쁜이</button>
+    </div>
+    <script>
+        var month; //변수 선언
+        var date = 02; //변수 선언과 동시에 초기화
+        month = 11; //변수의 초기화
+        document.getElementById("date").innerHTML =
+        "오늘은" + month + "월" + date +"일입니다"
+
+        console.log(document.querySelector("img").src);
+        function on(){
+            document.querySelector("img").src="img/pic_bulboff.gif";
+        }
+        function off(){
+            document.querySelector("img").src="img/pic_bulbon.gif";
+        }
+
+
+        
+
+        
+
+
+        
+    </script>
+</body>
+</html>

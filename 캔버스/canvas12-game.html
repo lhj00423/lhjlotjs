@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas>
+    </canvas>
+    <script>
+        //점프게임
+        //사각형을 그림
+        //점프기능
+        //충돌체크
+        const canvas = document.querySelector("canvas");
+        const ctx = canvas.getContext("2d");
+        
+        //캔버스 크기지정
+        canvas.width =window.innerWidth-200;
+        canvas.height =window.innerHeight-200;
+        //변수정의
+        let animation;
+        let timer = 0;
+        let jump = false;
+        let jumptimer = 0;
+        //주인공 객체
+        let gameU = {
+            x:30,
+            y:300,
+            width:50,
+            height:50,
+            draw(){
+                ctx.fillStyle = "green";
+                ctx.fillRect(this.x, this.y, this.width, this.height);
+            }
+        }
+        gameU.draw();
+        //장애물 배열
+        let obstacleArr = [];
+        //장애물 클래스
+        class Obstacle {
+            constructor(){
+                this.x = 900;
+                this.y = 300;
+                this.width = 50;
+                this.height = 50;
+            }
+            draw(){
+                ctx.fillStyle = "red";
+                ctx.fillRect(this.x, this.y, this.width, this.height);
+            }
+        }
+        //3초마다 장애물을 만들기
+        function startFrame(){
+            timer++;
+            //console.log(timer);
+            //캔버스 지우기
+            ctx.clearRect(0,0,canvas.width, canvas.height);
+            //1초에 60번 리퀘스트 역활(재귀함수)
+            animation = requestAnimationFrame(startFrame);
+            //timer가 180증가 될때마다 장애물을 생성
+            //장애물 배열에 넣기
+            if(timer % 180 == 0){
+                let obs = new Obstacle();
+                obstacleArr.push(obs);
+            }
+            obstacleArr.forEach((item, index, arr)=>{
+                //왼쪽으로 장애물을 이동하다가
+                //x좌표가 0보다 작으면 배열에서 제거
+                if(item.x<-25){
+                    arr.splice(index,1);
+                }
+                item.x--;
+                item.draw();
+                //충돌하는 지 확인
+                crachCheck(gameU, item);
+            })
+            //스페이스 눌렀을때 올라갔다가 내려오기
+            if(jump){
+                gameU.y -= 2;
+                jumptimer++;
+            }else{
+                if(gameU.y < 300 ) gameU.y+=2;
+            }
+            if(jumptimer > 80){
+                jump=false;
+                jumptimer=0;
+            }
+            gameU.draw();
+        }
+        startFrame()
+        //충돌 확인하기
+        function crachCheck(user,item){
+            let xoff = item.x - (user.x+user.width);
+            let yoff = item.y - (user.y+user.height/2);
+            if( xoff <=0 && yoff <= 0){
+                console.log("충돌");
+                cancelAnimationFrame(animation);
+            }
+        }
+        //키이벤트
+        window.addEventListener("keydown",function(e){
+            if(e.code == "Space"){
+                jump = true;
+                console.log(jump);
+            }
+        })
+    </script>
+</body>
+</html>

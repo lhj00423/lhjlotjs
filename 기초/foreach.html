@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>list1</li>
+        <li>list2</li>
+        <li>list3</li>
+        <li>list4</li>
+    </ul>
+
+    <script>
+        let arr1 = ["🥨","🍦","🌮","🍰","🎂","🍪"];
+        /*
+        console.log(arr1[0]);
+        console.log(arr1[1]);
+        console.log(arr1[2]);
+        console.log(arr1[3]);
+        console.log(arr1[4]);
+        */
+
+       /*
+       for(let i = 0 ; i < arr1.length; i++){
+            console.log(arr[i])
+       }(=)
+
+       for(let v of arr1){
+            console.log(v);
+       }
+       arr1.forEach(function(v,i,a){
+            console.log(v);
+            console.log(i);
+            console.log(a);
+       })
+
+       arr1.forEach((v,i,a)=>{
+        console.log(v);
+        console.log(i);
+        console.log(a);
+       })
+        */
+       /*노드리스트 배열형태*/
+       let lis = document.querySelectorAll("li");
+       console.log(lis);
+       /*
+       lis[0].style.background = "blue";
+       lis[1].style.background = "blue";
+       lis[2].style.background = "blue";
+       lis[3].style.background = "blue";
+       */
+      /*
+       for(let i = 0 ; i <lis.length; i++){
+        lis[i].style.background = "blue"
+       }*/
+
+       lis.forEach(function(li,index){li.innerHTML = "red" +index});
+       
+
+    </script>
+</body>
+</html>

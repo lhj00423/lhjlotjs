@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id ="content">
+        <h1>첫번째자식</h1>
+        <h2>두번째자식</h2>
+    </div>
+    <ul>
+        <li>list1</li>
+        <li>list2</li>
+        <li>list3</li>
+        <li>list4</li>
+    </ul>
+    <script>
+        //id가 content 인 div 선택하기
+        const content = document.getElementById("content");
+        const ul = document.querySelector("ul");
+        //요소노드 생성하기<div></div>
+        let p = document.createElement("p");
+        //내용을 적고 싶으면 textnode 추가하여 내용 입력 
+        let textnode = document.createTextNode("화요일");
+        //만든 div에 textnode 입력
+        p.appendChild(textnode); // <p>화요일</p>
+        //p요소 노드는 content요소의 자식노드로 추가
+        //content요소노드의 첫번째 자식 요소노드
+        content.insertBefore(p,content.lastElementChild);
+        let newLi =document.createElement("li");
+        newLi.innerHTML = "새로운 리스트";
+        ul.insertBefore(newLi, ul.children[3]);
+        //부르는 배열값 앞에 입력됨
+        //맨뒤는 입력할때는 appendChild 사용해야함
+    </script>
+</body>
+</html> 

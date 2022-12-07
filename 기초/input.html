@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>아이디<input type="text" name="userName" id = "userId"></p>
+    <p>비밀번호<input type="text" name="userName" id = "userPass"></p>
+    <p><button onclick="idwCheck()">확인</button></p>
+    <script>
+        //입력값이 value
+        function idwCheck(){
+            let inputid = document.querySelector("#userId");
+            let inputps = document.querySelector("#userPass"); 
+            let inputs = document.querySelectorAll("input");
+            console.log(inputs);
+            if(inputid === "bella"){
+                if(inputps === "1234"){
+                    alert("로그인이 되었습니다.");
+                }
+                else {
+                    alert("패스워드가 틀렸습니다.");
+                }
+            }else{
+                alert("아이디가 틀렸습니다.");
+            }
+            inputid.value = "";
+            inputps.value = "";
+            document.querySelector("#userId").value = "";
+            document.querySelector("#userPass").value = "";
+        }
+        
+       
+    </script>
+</body>
+</html>

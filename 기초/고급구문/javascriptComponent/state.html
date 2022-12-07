@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = "app">
+    </div>
+    <script>
+        const $app = document.querySelector("#app");
+        //초기상태
+        let state = {
+            students : ["stu1", "stu2","stu3","stu4"]
+        }
+        console.log(state.students);
+        //화면에 그리기
+        const render = () =>{
+            console.log("그린다");
+            const { students } = state;
+            $app.innerHTML =
+            `<ul>
+                ${students.map(stu=>`<li>${stu}</li>`).join("")}
+            </ul>
+            <button id ="add">추가</button>
+            `;
+            document.querySelector("#add").addEventListener("click",function(){
+                setState({students:[...students, `stu${students.length+1}`]})
+                //{students:["stu1","stu2","stu3","stu4","stu5(=students.length+1)"]}
+            })
+        }
+        //호출
+        render();
+
+        //상태변경하기
+        const setState = (newState)=>{
+            state = {...state, ...newState};
+            // students :["stu1","stu2","stu3","stu4"]
+            // students :["stu1","stu2","stu3","stu4","stu5"]
+            render();
+        }
+    </script>
+</body>
+</html>

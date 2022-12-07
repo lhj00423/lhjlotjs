@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = "app"></div>
+    <script src ="./main.js" type = "module">
+
+        // //컴포넌트 클래스 선언
+        // class Component{
+        //     //필드
+        //     target;
+        //     state;
+        //     //생성자
+        //     constructor(target){
+        //         this.target = target;
+        //         this.setup();
+        //         this.render();
+        //     }
+        //     //메소드
+        //     setup(){}
+        //     //화면구현 리턴
+        //     template(){return"";}
+        //     setEvent(){}
+        //     //화면에 나타내기
+        //     //DOM요소 이벤트 연결
+        //     render(){
+        //         this.target.innerHTML = this.template;
+        //         this.setEvent();
+        //     }    
+        //     setState(newState){
+        //         this.state = {...this.state, ...newState};
+        //         //화면그리기 호출
+        //         this.render();
+        //     }
+        // }
+        // //앱 클래스 선언
+        // class App extends Component{
+        //     setup(){
+        //         this.state = {students : ["stu1","stu1","stu1","stu4"]}
+        //     }
+        //     template(){
+        //         const{students} = this.state;
+        //         return
+        //         `<ul>
+        //             ${students.map(stu=>`<li>${stu}</li>`).join("")}
+        //         </ul>
+        //         <button id= "add">추가<button>
+        //         `;
+        //     }
+        //     setEvent(){
+        //         const{students} = this.state;
+        //         this.target.querySelector("#add")
+        //         .addEventListener("click",()=>{
+        //         this.setState({students:[...students, `stu${students.length+1}`]})
+        //         })
+        //     }
+        // }
+        
+        // new App(document.querySelector("#app"))
+    </script>
+</body>
+</html>

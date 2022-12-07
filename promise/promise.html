@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let promise = new Promise((resolve, reject)=>{
+            console.log("수행중......");
+            setTimeout(()=>{
+                resolve("성공");
+            },2000)
+        })
+        console.log("희희")
+        //프로미스 컨슈머
+        promise.then(value=>{
+            console.log(value);
+        }).catch(error=>{
+            console.log(error)
+        })
+        .finally(()=>{
+            console.log("끝났어요");
+        })
+    </script>
+</body>
+</html>

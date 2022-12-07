@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr1 = ["🥨","🥐"];
+        let arr2 =["🍰","🎂","🥯"];
+        let arr3 = arr1.concat(arr2)
+        console.log(arr3);
+
+        let arr4 = arr3.slice(0,2);
+        console.log(arr4);
+
+        let fruits = ["banana","orange","apple","mango"];
+        fruits.sort();
+        console.log(fruits);
+        let numbers = [1,2,3,4,5,6,7,8]
+        numbers.sort(function(a,b){return a-b});
+        console.log(numbers);
+
+        let arr5 = ["a","b","c","d"]
+        arr5.reverse()
+        console.log(arr5);
+
+        let result2 = arr5.includes("a");
+        console.log(result2)
+        //앞에 있는 배열에 있는 요소인지 확인해줌
+        //있으면 성공, 없으면 실패로 반환해줌
+        //indexedof 는 -1로 반환함 두개 차이 **
+</script>
+</body>
+</html>

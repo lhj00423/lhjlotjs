@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+      //1부터 100까지 숫자를 차례대로 출력합니다.
+      //1~100 까지 숫자를 출력
+      //3과 5로 나누어 떨어지는 수는 숫자대신 FizzBuzz 출력
+      //3으로 나누어 떨어지면 숫자대신 fizz 출력
+      //5로 나누어 떨어지면 숫자대신 buzz 출력
+
+      for(let i = 1; i <100; i++){
+        if(i % 5 ===0 && i % 3 ==0){
+            console.log("FizzBuzz");
+        }else if(i % 5 == 0){
+            console.log("buzz");
+        }else if(i % 3 == 0){
+            console.log("fizz")
+        }
+      }
+      
+      /*내가 한거
+      let nam = ""
+      let result = nam
+      for(let i = 1; i<100; i++){
+        if( i % 5 == 0 && i % 3 == 0){
+            result = "buzzFizz"
+        }else if(i % 5 == 0){
+        result = "buzz"
+        }else if(i % 3 == 0){
+        result = "fizz"
+        }
+        else{
+            result = i;
+        }
+        console.log(result);
+      }
+      //숫자가 3으로 떨어지면 Fizz  라는 문자열로 출력합니다.
+      //숫자가 5로 떨어지면 Buzz라는 문자열로 출력합니다.
+      // 둘다 나눠지면 다 무시하고 FizzBuzz 출력합니다.*/
+    </script>
+</body>
+</html>

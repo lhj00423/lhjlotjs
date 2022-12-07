@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas{background-color: #eee;}
+    </style>
+</head>
+<body>
+    <canvas width="1000" height="800"></canvas>
+    <script>
+        const canvas = document.querySelector("canvas");
+        const ctx = canvas.getContext("2d");
+        //이미지 객체생성
+        const imgElem = new Image();
+        imgElem.src = "./img/포메.jpg";
+        //load는 다 준비됬을때, 실행되는 이벤트
+        imgElem.addEventListener("load",function(){
+            for(let i =0; i<4; i++){
+                for(let j=0; j<3; j++){
+                    ctx.drawImage(imgElem, j*100, i*70, 100, 70);
+                }
+            }
+        })
+        ctx.font = "56px sans-serif";
+        ctx.fillText("Hello Canvas",100,400);
+        ctx.strokeText("Hello Canvas",100,500);
+    </script>
+</body>
+</html>

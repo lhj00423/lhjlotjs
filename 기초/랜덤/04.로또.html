@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>로또번호 출력하기</h1>
+    <script>
+        //1~45
+        //lotto =[123454...]
+        let lotto = [];
+        alert("로또번호 호출하기")
+        for(let i = 1; i<=45; i++){
+            lotto,push(i)
+        }
+        let result = [];
+        for(let i = 0; i <6; i++){
+            let randomNum = Math.floor(Math.random()*lotto.length);
+            result.push(lotto[randomNum])[6]
+            lotto.splice(randomNum,1)
+            //인덱스 0~43
+        }
+        document.write(`${lotto}`);
+
+        
+        //호출하기
+        let lis=[];
+        alert("로또번호 호출하기")
+        //숫자 6자리
+        for(let i = 0; i<6; i++ ){
+        //불렀을때 랜덤으로 나오기
+        lis[i]=Math.floor(Math.random()*45)+1;
+        for(let j= 0; j<i; j++){
+        //중복 안되게 하기
+            if(lis[i]==lis[j]){
+                 lis.splice()   
+                }
+            }
+        }
+        document.write(`${lis}`);
+
+    </script>
+</body>
+</html>

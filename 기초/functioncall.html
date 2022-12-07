@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function randomQuiz(answer, printYes,printNo ){
+            if(answer ==="green"){
+                printYes();
+            }else{
+                printNo();
+            }
+        }
+        let aaa = function(){
+            console.log("yes");
+        }// 첫줄에 있는 함수 호출에 담김(조건에 따라서)
+        let bbb = function(){
+            console.log("no");
+        }
+        aaa();
+        randomQuiz("green", aaa, bbb);
+        //전달한거임  
+      
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas{background-color: #eee;}
+    </style>
+</head>
+<body>
+    <canvas width="500" height="300"></canvas>
+    <script>
+        let canvas = document.querySelector("canvas");
+        let ctx = canvas.getContext("2d");
+        ctx.fillStyle = "blue";
+        //(x,y,크기,크기) 그리기
+        ctx.fillRect(100,50,100,100);
+        //지우기
+        ctx.clearRect(100,50,50,50);
+        //선으로 된 사각형 그리기
+        ctx.strokeRect(200,200,50,50);
+
+        //패스를 시작(펜도구 선택)
+        ctx.beginPath();
+        //시작위치 - 처음 점 찍기
+        ctx.moveTo(250,50);
+        //선그리기 - 다음 점 찍기
+        ctx.lineTo(300,50);
+        ctx.lineTo(300,70);
+        ctx.stroke();
+    </script>
+</body>
+</html>

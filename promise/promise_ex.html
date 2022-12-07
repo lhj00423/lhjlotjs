@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getDatePromise(){
+            //성공했을때 resolve, 실패했을떄 reject
+            return new Promise((resolve, reject)=>{
+                const xhr = new XMLHttpRequest(); //객체생성
+                //http메소드와 path정의
+                xhr.open("GET","https://jsonplaceholder.typicode.com/posts/1");
+                //header 값중 content-type 정의
+                xhr.setRequestHeader("content-type", "application/json");
+                //요청 전송
+                xhr.send();
+                //xhr.addEventListener("load", function(){})
+                xhr.onload= ()=> {
+                    if(xhr.status === 200){
+                        //응답 데이터
+                        const res = JSON.parse(xhr.response);
+                        resolve(res);
+                    }else{
+                        console.log(xhr.status, xhr.statusText);
+                        reject(new Error(xhr.status))
+                    }   
+                }
+            })
+        }
+        
+        getDatePromise().then((res)=>{
+            console.log(res);
+        }).catch((error)=>{
+            console.error(error);
+        }).finally(()=>{
+            console.log("끝났어요")
+        })
+        console.log("이게 비동기!");
+        //176p예제
+    </script>
+</body>
+</html>

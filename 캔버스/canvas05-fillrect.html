@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas{
+            background-color: #eee;
+        }
+    </style>
+</head>
+<body>
+    <canvas width="1200" height="800"></canvas>
+    <script>
+        const canvas = document.querySelector("canvas");
+        const ctx = canvas.getContext("2d");
+        let x = 100;
+        let y = 100;
+        let rectSize = 50;
+        // for(let i = 0; i<4; i++){
+        //     y = 100+(i*150);
+        //     for(let j =0; j<4; j++){
+        //         //50, 75, 100, 125
+        //         rectSize = 50+(i*25);
+        //         x = 100+(j*rectSize*1.5);
+        //         ctx.fillRect(x,y,rectSize,rectSize);
+        //     }
+            
+        // }
+        // ctx.beginPath();
+        // ctx.arc(100,400,30,0,120*Math.PI/180);
+        // ctx.stroke();
+        let arcX = 100;
+        let arcEnd = 36; 
+         for(let i =1; i<10; i++){
+            ctx.beginPath();
+            arcX = 100*i;
+            arcEnd = 36*i;
+            ctx.arc(arcX,400,30,0,arcEnd*Math.PI/180);
+            ctx.stroke();
+        }
+        
+        
+
+       
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 
+
+      /*
+      -변수 만들어주는 키워드-
+      1.var : 함수 스코프 / 
+              같은 이름의 변수를 여러번 선언 가능
+              변수의 선언부가 호이스팅 됨
+      2.let : 블록 스코프
+              같은 이름의 변수를 여러번 선언 불가능
+    
+      3.const : 블록 스코프
+                할당후 값을 변경할 수없음.
+                선언시 할당해야함.
+      *글로벌 변수
+      - 최상단에서 선언한 변수
+        코드 어디서든 사용가능
+      *지역변수(로컬변수)
+      - {}안에 작성된 변수
+        스코프범위안에서 사용가능
+      */
+
+     const const1 = "aa";
+     let let1;
+     let1 = 30;
+     const1 = "bb";
+     var str1 = "a";
+     var str1 = "b";
+     console.log(str2);
+     var str2 = 10;
+
+     let userName ="green";
+     {
+        let userAge = 30 ;
+        console.log("블록안에서 사용" + userName);
+        console.log(userAge);
+        var number1 = 10;
+        const const2 = 10;
+     }
+     function myFunc(){
+        var number2 = 20;
+        let number3 = 50;
+     }
+     console.log("바깥에서 사용" + userName);
+     console.log("바깥에서 사용" + number1);
+     
+     
+    </script>
+</body>
+</html>
+<!---->

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let student1 = {
+            name:"bella",
+            age: 27,
+            gender:"f"
+        }
+        let result1 = Object.keys(student1);
+        console.log(result1);
+        let result2 = Object.values(student1);
+        console.log(result2);
+        let result3 = Object.entries(student1);
+        console.log(result3);
+        //키는 스트링타입으로 변환됨
+        let result4 = Object.fromEntries(result3);
+        console.log(result4);
+    </script>
+</html>

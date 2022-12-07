@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="join.php" method="get" onsubmit="return forCheck()">
+        <p>아이디<input type="text" id = "userId" name="userId"/></p>
+        <p>비밀번호<input type="text" id = "userPw" name="userPw"/></p>
+        <p><button type = "submit">전송</button></p>
+    </form>
+    <script>
+        document.querySelector("form").addEventListener("submit",function(e){
+            e.preventDefault()
+        })
+        let userInput = document.querySelector("#userId");
+        let passInput = document.querySelector("#userPw");
+        function forCheck(){
+            console.log("폼을 확인합니다.");
+            //아이디입력시 빈칸이 아니고, 글자수가 5개이상인지 체크
+            //비밀번호 입력시 숫자가 하나이상 포함, 소문자도 하나이상 포함
+            //숫자가 하나이상 포함
+            if(userInput.value.length >= 5){
+                if(passInput.value.length >= 5){
+                    let newArr = passInput.value.split("");
+                    console.log(newArr);
+                    let isNum = false;
+                    newArr.forEach(ch=>{
+                        if(!isNaN(Number(ch))){
+                            isNum =true;
+                        }
+                    })
+                }
+            
+                else{
+                    console.log("비밀번호 글자수 부족")
+                }
+            }
+         else{
+            console.log("아이디글자수 부족")
+         } }
+        
+
+    </script>
+</body>
+</html>

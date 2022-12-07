@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0; padding: 0; box-sizing: border-box;}
+        #wrap {
+            width: 100%;
+            max-width: 1200px;
+            margin: 120px auto;
+            background: pink;
+            
+            font-size: 20px;
+            padding: 2px;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        #top {
+            background-color: rgb(255, 175, 71);
+            padding-top: 50px;
+            padding-bottom: 30px 0;
+            border: 5px double #ccc;
+        }
+        #top > div{
+            display: flex;
+            justify-content: center;
+        }
+        #bottom {
+            display: flex;
+            justify-content: center;
+        }
+        #score {
+            margin-top: 20px;
+        }
+        #score > div:first-child {
+            border: 3px solid #fff;
+            padding: 50px 80px;
+            margin-right: 30px;
+            margin-top: 10px;
+        }
+        #score > div:nth-child(2) {
+            border: 3px solid #fff;
+            padding: 50px 80px;
+            margin-top: 10px;
+        }
+        #inform {
+            padding: 50px 200px;
+        }
+        #bottom {
+            background-color: rgb(224, 188, 70);
+            border-bottom: 5px double #ccc;
+            border-left: 5px double #ccc;
+            border-right:5px double #ccc;
+        }
+        #com_shoot {
+            padding: 50px 100px;
+        }
+        #user_shoot {
+            padding: 50px 100px;
+         
+        }
+        button {
+            padding: 10px 30px;
+            margin-top: 10px;
+            background: rgb(0, 0, 0);
+            color: #fff;
+            font-weight: bold;
+            border: 3px solid #bbb;
+            font-size: 16px;
+        }
+        #num {
+            padding: 5px 40px;
+            background: black;
+            color: #fff;
+            margin-left: 10px;
+            margin-top: -5px;
+        }
+        #com_num {
+            padding: 5px 50px;
+            background: black;
+            color: #fff;
+            margin-top: 5px;
+        }
+        #user_num {
+            padding: 5px 50px;
+            background: black;
+            color: #fff;
+            margin-top: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id = top>
+            <div>
+                <div>남은 슛 횟수</div>
+                <div id="num"></div>
+            </div>
+            <div id = score>
+                <div>
+                    <div>컴퓨터</div>
+                    <div id="com_num"></div>
+                </div>
+                <div>
+                    <div>사람</div>
+                    <div id="user_num"></div>
+                </div>
+            </div>
+            <div id="inform"></div>
+        </div>
+        <div id = bottom>
+            <div id="com_shoot">
+                <div>컴퓨터</div>
+                <button id="com23" onclick="com23()">슛하기</button>
+            </div>
+            <div id="user_shoot">
+                <div>사용자</div>
+                <button id="user2" onclick="user2()">2점슛</button>
+                <button id="user3" onclick="user3()">3점슛</button>
+            </div>
+        </div>
+    </div>
+             
+    <script>
+        /*1. 컴퓨터가 먼저함
+        2. 3점슛은 30%확률로 말함
+        3. 2점 슛은 50%확률로 성공
+        4.결과는 텍스트로 표시
+        5.성공하면 컴퓨터의 점수를 더해준다.
+        6.컴퓨터 순서가 끝나면 사용자의 순서가 된다.
+        7.사용자는 2점슛, 3점슛을 선택할수있다.
+        8.2점슛은 50%확률로 성공
+        9.3점슛은 30%확률로 성공
+        10.결과는 텍스트로 표시
+        11.성공시 사람의 점수를 더해준다
+        12.사용자 턴이 끝나면 남은 슛 회수사 1씩 줄어든다.
+        13.남은 슛횟수가 0이되면 누가 이겼는지 결과를 텍스트로 나타낸다.
+        14.<button disabled = "false"></button>
+        실패가 보이게 해야함
+        document.querySelector('#btncom').disabled = true;
+        */
+
+     // 점수 나오게 하기   
+     let num = 15;
+     let com_num = 0;
+     let user_num = 0;
+     let temp = 0;
+
+     //총 점수 부르기
+     document.querySelector(`#num`).innerHTML = num;
+     document.querySelector(`#com_num`).innerHTML = com_num;
+     document.querySelector(`#user_num`).innerHTML = user_num;
+     
+    let com_score = [`2점슛`,`3점슛` ];
+    let rp2 = [0,0,0,0,0,1,1,1,1,1];
+    let rp3 = [0,0,0,0,0,1,1,1,1,1];
+
+    //총 점수에 따른 승부여부
+    function com23(){
+        viewButton();
+        document.querySelector(`#com_num`).innerHTML=score_cal();
+    }
+    function user2() {
+            viewButton();
+            document.querySelector('#user_num').innerHTML=user2_cal();
+            if(num == 0 && com_num > user_num) {
+                document.querySelector('#inform').innerHTML='컴퓨터가 이겼습니다.';
+            } else if (num == 0 && com_num < user_num){
+                document.querySelector('#inform').innerHTML='사용자가 이겼습니다.';
+            } else if (num == 0 && com_num == user_num) {
+                document.querySelector('#inform').innerHTML='비김';
+            }
+        }    
+        function user3() {
+            viewButton();
+            document.querySelector('#user_num').innerHTML=user3_cal();
+            if(num == 0 && com_num > user_num) {
+                document.querySelector('#inform').innerHTML='컴퓨터가 이겼습니다.';
+            } else if (num == 0 && com_num < user_num){
+                document.querySelector('#inform').innerHTML='사용자가 이겼습니다.!!';
+            } else if (num == 0 && com_num == user_num) {
+                document.querySelector('#inform').innerHTML='비겼습니다.';
+            }
+        }   
+        function score_cal() {
+            let com_score_random = Math.floor(Math.random()*2);
+            let rpp = Math.floor(Math.random()*10);
+            document.querySelector('#num').innerHTML=num;
+            if(com_score_random === 0) {
+                if(rp2[rpp] === 0) {
+                    document.querySelector('#inform').innerHTML='컴퓨터가 2점슛을 성공시켰습니다.';
+                    com_num +=2;
+                    return com_num;
+                } else {
+                    document.querySelector('#inform').innerHTML='컴퓨터가 2점슛을 실패하였습니다.';
+                    return com_num; 
+                } 
+            } else {
+                if(rp3[rpp] === 0) { 
+                    document.querySelector('#inform').innerHTML='컴퓨터가 3점슛을 성공시켰습니다.';
+                    com_num +=3;
+                    return com_num; 
+                } else {
+                    document.querySelector('#inform').innerHTML=`컴퓨터가 3점슛을 실패하였습니다.`;
+                    return com_num;
+                }  
+            }
+        }
+        function user2_cal() {
+            let rpp = Math.floor(Math.random()*10);
+            num = num-1;
+            document.querySelector('#num').innerHTML=num;
+            if(rp2[rpp] === 0) {
+                document.querySelector('#inform').innerHTML='사용자가 2점슛을 성공시켰습니다.';
+                user_num+=2;
+                return user_num;
+            } else {
+                document.querySelector('#inform').innerHTML='사용자가 2점슛을 실패하였습니다.';
+                return user_num;
+            }   
+        }
+        function user3_cal() {
+            let rpp = Math.floor(Math.random()*10);
+            num = num-1;
+            document.querySelector('#num').innerHTML=num;
+            if(rp3[rpp] === 0) { 
+                document.querySelector('#inform').innerHTML='사용자가 3점슛을 성공시켰습니다.';
+                user_num+=3;
+                return user_num; 
+            } else {
+                document.querySelector('#inform').innerHTML=`사용자가 3점슛을 실패하였습니다.`;
+                return user_num; 
+            }  
+        }
+        function viewButton() {
+            if(temp == 0) {
+                document.querySelector('#com23').disabled=true;
+                document.querySelector('#user2').disabled=false;
+                document.querySelector('#user3').disabled=false;
+                temp = 1;
+            } else {
+                document.querySelector('#com23').disabled=false;
+                document.querySelector('#user2').disabled=true;
+                document.querySelector('#user3').disabled=true;
+                temp = 0;
+            }
+            if (num <= 1) {
+                document.querySelector('#com23').disabled=true;
+            } else if (num == 0) {
+                document.querySelector('#user2').disabled=true;
+                document.querySelector('#user3').disabled=true;
+            }
+        }
+        document.querySelector('#btncom').disabled = true;
+     
+    </script>
+</body>
+</html>

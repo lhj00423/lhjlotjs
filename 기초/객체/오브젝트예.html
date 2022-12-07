@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Accumulator 생성자 함수 만들기
+        //startNum 프로퍼티
+        //read()메소드 숫자를 입력받고
+        //startNum + 입력값더해서 리턴
+        function Accumulator(StartNum){
+            this.StartNum = StartNum;
+            this.read = function(){
+                this.StartNum = this.StartNum + Number(prompt("숫자를 입력하세요"));
+                return this.StartNum;
+            }
+        }
+        let acc = new Accumulator(10);
+        console.log(acc.StartNum);
+        console.log(acc.read());
+
+        function Student(name, age, score1, score2){
+            this.name = name ;
+            this.age = age ;
+            this.score1= score1 ;
+            this.score2 = score2 ;
+            this.total = function(){
+                return this.score1 + this.score2;
+            }
+        }
+
+        let student1 = new student1("green",22, 85, 75 );
+        let student2 = new student2("blue", 25, 80, 65);
+        let result3 = student1.total();
+        let result4 =student2.total();
+        
+
+    </script>
+</body>
+</html>

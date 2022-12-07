@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //클래스 선언
+        class Person{
+            //생성자
+            constructor(name, age){
+                this.name = name;
+                this.age = age;
+            }
+            speak(){
+                console.log(`${this.name} : hello!`)
+            }
+        }
+        const min = new Person("민영", 27);
+        console.log(min);
+        console.log(min.name);
+        //메소드호출
+        min.speak();
+
+        //학생클래스 생성
+        class Student {
+            constructor(name, age, enrolled, score){
+                this.name = name;
+                this.age = age;
+                    this.enrolled = enrolled;
+                    this.score =score;
+            }
+        }
+        const student = [
+            new Student('A',29,true,45),
+            new Student('B',28,false,80),
+            new Student('C',29,true,90),
+            new Student('D',30,false,66),
+            new Student('E',31,true,88),
+        ]
+        console.log(student);
+
+        //상속과 다형성
+        //동물
+        //고양이
+        class Shape {
+            constructor(width, height, color){
+                this.width = width;
+                this.height = height;
+                this.color = color;
+            }
+            draw(){
+                console.log(`${this.color}로 그립니다.`);
+            }
+            getArea(){
+                return this.width * this.height;
+            }
+        }
+        //상속 키워드 extends
+        class Rectangle extends Shape{
+            //메소드재정의
+            //오버라이딩
+            //필요한 함수만 재정의
+            draw(){
+                //super 부모요소의 draw도 호출
+                //this는 자기 자신
+                super.draw();
+                console.log("사각형을 그립니다.");
+            }
+        }
+        class triangle extends Shape{
+            
+        }
+        const rectangle = new Rectangle(20,20,'blue');
+        rectangle.draw();
+        console.log(rectangle.getArea());
+        console.log(rectangle);
+
+        
+        
+    </script>
+</body>
+</html>

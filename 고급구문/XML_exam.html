@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<div>
+
+</div>
+<body>
+    <script>
+        //서버 전송 객체 생성하기
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET","https://jsonplaceholder.typicode.com/posts");
+        xhr.setRequestHeader("content-type","application/json");
+        xhr.send();
+        xhr.onload = () => {
+            if(xhr.status === 200){
+                const res = JSON.parse(xhr.response);
+                console.log(res);
+                makeP(res);
+            }else{
+                console.error(xhr.status, xhr.statusText);
+            }
+        }
+        function makeP(res){
+            let str ="";
+            res.forEach(re=>{
+                str = str + `<p>${re.title}</p>`;
+            })
+            document.querySelector("div").innerHTML = str;
+        }
+    </script>
+</body>
+</html>

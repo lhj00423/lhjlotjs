@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let user = {
+            name:"green",
+            age:20,
+        }
+        let user2 = user
+        user2.name = "blue";
+        console.log(user.name);
+
+        let a = {};
+        let b = a;
+        console.log(a==b);
+        console.log(a===b);
+        // 같다고 나옴
+
+        let c = {};
+        let d = {};
+        console.log(c==d);
+        console.log(c===d);
+        //다르다고 나옴
+
+        let student1 ={
+            name:"bella",
+            age:22,
+        };
+        //새로운 빈객체
+        let clone = {};
+        //빈객체에 student1의 프로퍼티 전부를 복사해서 넣기
+       /*for(let key in student1){
+        clone[key] = student1[key];
+       }*/
+       
+        Object.log(clone,student1);
+        let clone2 = Object.assign({},student1);
+        console.log(clone);
+        clone.name = ("green");
+        console.log(clone);
+        console.log(student1);
+        Object.assign(clone,student1)
+        console.log(clone2)
+    </script>
+</body>
+</html>
